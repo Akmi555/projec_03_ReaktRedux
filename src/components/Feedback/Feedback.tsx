@@ -24,7 +24,7 @@ function Feedback() {
   }
 
   const onReset = () => {
-    dispatch(feedbackSliceActions.like())
+    dispatch(feedbackSliceActions.reset())
   }
 
 
@@ -40,7 +40,7 @@ function Feedback() {
           <Fontesult>{countDislike}</Fontesult>
         </LikeDislikeComponent>
       </FeedbackResultComponent>
-      {/* <Button name="RESET RESULT" onButtonClick={onReset} /> */}
+      <Button name="RESET RESULT" onButtonClick={onReset} />
     </FeedbackComponent>
   );
 }

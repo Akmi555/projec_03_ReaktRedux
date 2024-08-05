@@ -1,14 +1,14 @@
 import { createAppSlice } from "../../createAppSlice"
 import { FeedbackStateSlice} from "./types"
 
-const feedbackInitialSlice: FeedbackStateSlice = {
+const feedbackInitialState: FeedbackStateSlice = {
     like: 0,
     dislike: 0,
 }
 
 export const feedbackSlice = createAppSlice ({
     name: "FEEDBACK",
-    initialState: feedbackInitialSlice,
+    initialState: feedbackInitialState,
     reducers: create => ({
         like: create.reducer((state: FeedbackStateSlice) => {
             state.like = state.like + 1
@@ -16,9 +16,12 @@ export const feedbackSlice = createAppSlice ({
         dislike: create.reducer((state: FeedbackStateSlice) => {
             state.dislike = state.dislike + 1
         }),
-        reset: create.reducer((state: FeedbackStateSlice) => {
-            state.dislike = state.dislike * 0
-        }),
+        // способ очистки состяния (возвращение к initialState)
+        reset: create.reducer(() => feedbackInitialState),
+        // reset: create.reducer((state: FeedbackStateSlice) => {
+        //     state.like = state.like * 0
+        //     state.dislike = state.dislike * 0
+        // }),
     }),
     selectors: {
         like: (state: FeedbackStateSlice) => state.like,
