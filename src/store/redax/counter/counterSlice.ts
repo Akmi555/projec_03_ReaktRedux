@@ -15,8 +15,8 @@ export const counterSlice = createAppSlice({
   initialState: counterInitialSlic,
   //5. Создаём объект, внутри которого будут храниться редьюсеры (функции, которые отвечают за изменение состояния)
   reducers: create => ({
-    plus: create.reducer((stste: CounterStateSlice) => {
-      stste.count = stste.count + 1
+    plus: create.reducer((state: CounterStateSlice) => {
+      state.count = state.count + 1
     }),
     minus: create.reducer((state: CounterStateSlice) => {
       state.count = state.count - 1
