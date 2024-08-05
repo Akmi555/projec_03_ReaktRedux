@@ -10,8 +10,9 @@ import { useAppDispatch, useAppSelector } from "../../store/hooks";
 import { feedbackSliceActions,feedbackSliceSelectors} from "../../store/redax/feedback/feedbackSlice";
 
 function Feedback() {  
-  const countLike = useAppSelector(feedbackSliceSelectors.count)
-  const countDislike = useAppSelector(feedbackSliceSelectors.count)
+  const countLike = useAppSelector(feedbackSliceSelectors.like)
+  const countDislike = useAppSelector(feedbackSliceSelectors.dislike)
+
   const dispatch = useAppDispatch();
 
   const onLike = () => {
@@ -19,6 +20,10 @@ function Feedback() {
   }
 
   const onDislike = () => {
+    dispatch(feedbackSliceActions.dislike())
+  }
+
+  const onReset = () => {
     dispatch(feedbackSliceActions.like())
   }
 

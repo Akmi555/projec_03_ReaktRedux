@@ -1,3 +1,4 @@
 export interface FeedbackStateSlice {
-  count: number
+    like: number,
+    dislike: number,
 }

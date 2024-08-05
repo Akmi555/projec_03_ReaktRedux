@@ -2,7 +2,8 @@ import { createAppSlice } from "../../createAppSlice"
 import { FeedbackStateSlice} from "./types"
 
 const feedbackInitialSlice: FeedbackStateSlice = {
-    count: 0,
+    like: 0,
+    dislike: 0,
 }
 
 export const feedbackSlice = createAppSlice ({
@@ -10,14 +11,18 @@ export const feedbackSlice = createAppSlice ({
     initialState: feedbackInitialSlice,
     reducers: create => ({
         like: create.reducer((state: FeedbackStateSlice) => {
-            state.count = state.count + 1
+            state.like = state.like + 1
         }),
         dislike: create.reducer((state: FeedbackStateSlice) => {
-            state.count = state.count + 1
+            state.dislike = state.dislike + 1
+        }),
+        reset: create.reducer((state: FeedbackStateSlice) => {
+            state.dislike = state.dislike * 0
         }),
     }),
     selectors: {
-        count: (state: FeedbackStateSlice) => state.count,
+        like: (state: FeedbackStateSlice) => state.like,
+        dislike: (state: FeedbackStateSlice) => state.dislike,
     },
 })
 
