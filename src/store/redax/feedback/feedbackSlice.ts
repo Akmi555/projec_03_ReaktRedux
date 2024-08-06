@@ -1,3 +1,4 @@
+import { PayloadAction } from "@reduxjs/toolkit"
 import { createAppSlice } from "../../createAppSlice"
 import { FeedbackStateSlice} from "./types"
 
@@ -10,8 +11,10 @@ export const feedbackSlice = createAppSlice ({
     name: "FEEDBACK",
     initialState: feedbackInitialState,
     reducers: create => ({
-        like: create.reducer((state: FeedbackStateSlice) => {
-            state.like = state.like + 1
+        //2-й аргумент в функции reducer - action (это объект, в свойстве payload которого храняться данные, 
+        //которые мы можем передать из компонента в slice)
+        like: create.reducer((state: FeedbackStateSlice, action: PayloadAction<number>) => {
+            state.like = state.like + action.payload
         }),
         dislike: create.reducer((state: FeedbackStateSlice) => {
             state.dislike = state.dislike + 1

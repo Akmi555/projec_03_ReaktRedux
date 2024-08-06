@@ -5,8 +5,8 @@ interface ButtonComponentProps {
 }
 
 export const ButtonComponent = styled.button<ButtonComponentProps>`
-  width: 100px;
-  height: 30px;
+  width: 100%;
+  height: fit-content;
   outline: none;
   border: none;
   padding: 2px;
